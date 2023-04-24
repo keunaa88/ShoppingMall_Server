@@ -3,10 +3,12 @@ var Schema = mongoose.Schema;
 
 var itemSchema = new Schema(
   {
-    title: String,
-    price: Number,
-    category: String,
-    date: { type: Date, default: Date.now }
+    mainImg: { type: String, required: true },
+    title: { type: String, required: true },
+    price:  { type: Number, required: true },
+    category: { type: String, required: true },
+    content: { type: String },
+    created: { type: Date, default: new Date.now() }
   },
   { versionKey: "_somethingElse" }
 );

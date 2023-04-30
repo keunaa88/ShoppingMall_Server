@@ -13,7 +13,7 @@ const {   AWS_ACCESS_KEY_ID,
 AWS.config.update({
   accessKeyId: AWS_ACCESS_KEY_ID,
   secretAccessKey: AWS_SECRET_ACCESS_KEY,
-  region: AWS_REGION,
+  region: AWS_REGION
   //signatureVersion: 'v4',
 });
 
@@ -34,7 +34,7 @@ router.post('/uploadImg', upload, (req, res) => {
   const params = {
     Bucket: AWS_S3_BUCKET_NAME,
     Key: Date.now() + '-' + file.originalname,
-    Body: file.buffer,
+    Body: file.buffer
   };
   //const { originalname, mimetype, filename, location } = req.file;
   s3.upload(params, (err, data) => {

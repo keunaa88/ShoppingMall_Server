@@ -43,7 +43,7 @@ mongoose
 
 // })
 //dev
-// app.use(express.static(path.join(__dirname, '../client/src')));
+// app.use(express.(path.join(__dirname, '../client/src')));
 
 // app.get('/', function(요청, 응답){
 //     응답.sendFile(path.join(__dirname, '../client/src/App.js'))

@@ -1,0 +1,4 @@
+    // "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    // "client": "cd client && npm start",
+    // "server": "cd server && nodemon app",
+    // "build": "cd client && npm run build"

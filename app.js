@@ -37,7 +37,7 @@
 
 
 
-// const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 // app.listen(port, () => {
 //   console.log(`Server Listening on ${port}`);
@@ -52,4 +52,4 @@ app.get("/", (req, res) => {
   res.send("Hello Beanstalk!!");
 });
 
-app.listen(8080); 
+app.listen(port); 

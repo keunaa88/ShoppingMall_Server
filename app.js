@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 
 
 const { MONGO_URI } = process.env;
+console.log('MONGO_URI', MONGO_URI)
 
 mongoose.connect(`${MONGO_URI}`, { useNewUrlParser: true, useUnifiedTopology: true,})
         .then(() => console.log('Successfully connected to mongodb'))
@@ -29,9 +30,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!!");
 });
 
-app.get("/api", (req, res) => {
-  res.send("Hello World API!!");
-});
+
 
 app.use("/api/post", post)
 

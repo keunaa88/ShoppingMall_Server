@@ -14,10 +14,19 @@ app.use(cors());
 const path = require('path');
 app.use(express.static(path.join(__dirname, '../client/build')));
 
+const url = '';
+if (process.env.NODE_ENV == 'production') {
+  url = rocess.env.MONGO_URI
+}
+else if (process.env.NODE_ENV == 'development') {
+  url = rocess.env.MONGO_URI_PRO
+}
+
+const { MONGO_URI } = url;
+console.log('process.env.NODE_ENV', process.env.NODE_ENV, 'MONGO_URI', MONGO_URI)
 
 
-const { MONGO_URI } = process.env;
-console.log('MONGO_URI', MONGO_URI)
+
 
 mongoose.connect(`${MONGO_URI}`, { useNewUrlParser: true, useUnifiedTopology: true,})
         .then(() => console.log('Successfully connected to mongodb'))

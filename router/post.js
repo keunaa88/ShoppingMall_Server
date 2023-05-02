@@ -70,6 +70,18 @@ console.log('upload, data', data)
   
 });
   
+router.get('/detail', async (req, res) => {
+  const db = req.app.locals.db;
+  console.log('detail')
+  try {
+    const response = await db.collection('Items').find().sort({created:-1}).toArray();
+    return res.send(response);
+  } catch (err) {
+    console.log('get /detail data error: ', err);
+    return res.status(500).send({ err: err.message });
+  }
+});
+
 router.get('/detail/:id', (req, res) => {
   const { id } = req.params;  // 클라이언트로부터 전달된 id 파라미터 추출
 
@@ -88,6 +100,9 @@ router.get('/detail/:id', (req, res) => {
     res.status(200).send(result);
   });
 });
+
+
+
     
 
 

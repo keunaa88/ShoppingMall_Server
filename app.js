@@ -14,18 +14,15 @@ app.use(cors());
 const path = require('path');
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-const url = '';
-if (process.env.NODE_ENV == 'production') {
-  url = rocess.env.MONGO_URI
-}
-else if (process.env.NODE_ENV == 'development') {
-  url = rocess.env.MONGO_URI_PRO
-}
+// if (process.env.NODE_ENV == 'production') {
+//   url = process.env.MONGO_URI
+// }
+// else if (process.env.NODE_ENV == 'development') {
+//   url = process.env.MONGO_URI
+// }
 
-const { MONGO_URI } = url;
-console.log('process.env.NODE_ENV', process.env.NODE_ENV, 'MONGO_URI', MONGO_URI)
-
-
+const { NODE_ENV, MONGO_URI } = process.env;
+console.log('process.env.NODE_ENV', NODE_ENV, 'MONGO_URI', MONGO_URI)
 
 
 mongoose.connect(`${MONGO_URI}`, { useNewUrlParser: true, useUnifiedTopology: true,})
@@ -42,10 +39,8 @@ app.get("/", (req, res) => {
 
 
 app.use("/api/post", post)
-
-
-
-const port = process.env.PORT || 8080;
+//const port = process.env.PORT || 8080;
+const port = 8080;
 
 app.listen(port, () => {
   console.log(`Server Listening on ${port}`);
